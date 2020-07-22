@@ -1,0 +1,57 @@
+{% extends "pay/base.html" %}
+
+{% block content %}
+
+
+{% load static %}
+
+
+<br>
+
+<br>
+<div class="container"> <div class="card p-3 mb-2 bg-transparent text-dark">
+   <div class="card-body px-lg-5 pt-0"><br>
+   
+<div class="row">
+<h4><a href="{% url 'profile' profile.slug %}/createprofile">Edit profile	&nbsp; <i class="fas fa-user-cog"></i></a></h4>
+</div>
+
+<div class="row">
+<div class="col-md-4">
+{% if profile.picture %}
+<img src="{{profile.picture.url}}" alt="" class="card-img-top">
+
+{% else %}
+  <img src="{% static 'img/download.png' %}" class="card-img-top" alt="..." style="max-height:360px;">
+
+{% endif %}
+</div>
+<div class="col-md-6">  
+
+<h3 style="color:#21A3F6;">{{profile.first}}  {{profile.last}}  <a  href="{% url 'profile' user.userprofile.slug %}">@{{profile}}</a></h3>
+<br>
+<hr><br>
+<h3 style="color:#21A3F6;">{{profile.bio}}
+<br>
+<hr>
+History of donation <hr>
+{% for h in history %}
+<ul><li> you donated
+{{h.amount}}$<br></li>
+</ul>
+{% endfor %}
+<hr>
+total: {{total}}$
+</h3>
+
+</div>
+</div>
+</div>
+</div></div>
+
+
+
+</div></div>
+
+{% endblock %}
+

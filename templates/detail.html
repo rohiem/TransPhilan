@@ -1,0 +1,14 @@
+{{reques.title}}<br>
+<h1>{{reques.content}}</h1>
+<img src="{{reques.img.url}}" alt="">
+{% for int in interact %}
+{{int.comment}}
+
+{% endfor %}
+<br><br><br>
+{{total}}
+<form method="post">{% csrf_token %}
+<input type="text" name="comment">
+<input type="checkbox" name="vote" checked="true" />
+                  <button type="submit" class="btn btn-warning">Place Order</button>
+</form>
